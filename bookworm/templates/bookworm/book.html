@@ -1,0 +1,28 @@
+{% extends 'bookworm/base.html' %}
+
+{% block page_header %}
+  <h1>{{ book.text }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  <p>
+    <a href="{% url 'bookworm:new_entry' book.id %}">Add new entry</a>
+  </p>
+
+  {% for entry in entries %}
+    <div class="card mb-3">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header">
+        {{ entry.entry_date|date:'M d, Y H:i' }}
+        <small><a href="{% url 'bookworm:edit_entry' entry.id %}">
+          edit entry</a></small>
+      </h4>
+      <!-- Card body with entry text -->
+      <div class="card-body">{{ entry.text|linebreaks }}</div>
+    </div>
+  {% empty %}
+    <p>There are no entries for this book yet.</p>
+  {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'bookworm/base.html' %}
+
+{% block page_header %}
+  <div class="p-3 mb-4 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+      <h1 class="display-3">Elevate your reading experience.</h1>
+      
+      <p class="lead">Join the Bookworm community in order to journal your
+      thoughts before, while, and after reading a book. Register or log in 
+      now to start logging your favorite books and capturing your thoughts.</p>
+
+      <a class="btn btn-primary btn-lg mt-1"
+          href="{% url 'accounts:register' %}">Register &raquo;</a>
+    </div>
+  </div>
+{% endblock page_header %}

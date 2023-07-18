@@ -1,0 +1,15 @@
+{% extends 'bookworm/base.html' %}
+
+{% block content %}
+
+    <p><a href="{% url 'bookworm:book' book.id %}">{{ book }}</a></p>
+
+    <p>Edit entry:</p>
+    
+    <form action="{% url 'bookworm:edit_entry' entry.id %}" method="post">
+        {%csrf_token %}
+        {{ form.as_div }}
+        <button name="sumbit">Save changes</button>
+    </form>
+
+{% endblock content %}
