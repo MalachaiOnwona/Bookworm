@@ -1,5 +1,5 @@
 name: "bw_project"
-type: "python:3.11.4"
+type: "python:3.11"
 
 relationships:
     database: "db:postgresql"
