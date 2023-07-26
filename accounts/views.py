@@ -18,4 +18,4 @@ def register(request):
         
     context = {'form': form}
     
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/accounts/templates/registration/register.html', context)
+    return render(request, 'registration/register.html', context)
