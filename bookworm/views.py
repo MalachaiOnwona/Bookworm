@@ -8,7 +8,7 @@ from .forms import BookForm, EntryForm
 
 def index(request):
     '''Bookworm's home page'''
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/index.html')
+    return render(request, 'bookworm/index.html')
 
 @login_required
 def books(request):
@@ -16,7 +16,7 @@ def books(request):
     books = Book.objects.filter(owner=request.user).order_by('entry_date')
     context = {'books': books}
     
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/books.html', context)
+    return render(request, 'bookworm/books.html', context)
 
 @login_required
 def book(request, book_id):
@@ -29,7 +29,7 @@ def book(request, book_id):
     entries = book.entry_set.order_by('-entry_date')
     context = {'book': book, 'entries': entries}
 
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/book.html', context)
+    return render(request, 'bookworm/book.html', context)
 
 @login_required
 def new_book(request):
@@ -52,7 +52,7 @@ def new_book(request):
         
     context = {'form': form}
     
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/new_book.html', context)
+    return render(request, 'bookworm/new_book.html', context)
 
 @login_required
 def new_entry(request, book_id):
@@ -77,7 +77,7 @@ def new_entry(request, book_id):
         
     context = {'book': book, 'form': form}
     
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/new_entry.html', context)
+    return render(request, 'bookworm/new_entry.html', context)
 
 @login_required
 def edit_entry(request, entry_id):
@@ -104,4 +104,4 @@ def edit_entry(request, entry_id):
         
     context = {'entry': entry, 'book': book, 'form': form}
     
-    return render(request, 'C:/Users/Malachai Onwona/.vscode-cli/Bookworm/bookworm/templates/bookworm/edit_entry.html', context)
+    return render(request, 'bookworm/edit_entry.html', context)
