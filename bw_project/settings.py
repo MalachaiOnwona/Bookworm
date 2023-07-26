@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)fn6f2&ui6=3hor_p$+=n!7)&n&a#t3!-e19hh=6q$zm_dwk9^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True   
 
 ALLOWED_HOSTS = []
 
@@ -149,6 +149,7 @@ config = Config()
 
 if config.is_valid_platform():
     ALLOWED_HOSTS.append('.platformsh.site')
+    DEBUG = False
 
     if config.appDir:
         STATIC_ROOT = Path(config.appDir) / 'static'
